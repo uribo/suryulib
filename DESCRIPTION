@@ -1,0 +1,26 @@
+Package: suryulib
+Type: Package
+Title: Shinya Uryu's Personal R Packages
+Version: 0.1.0
+Authors@R: c(
+    person(given = "Shinya",
+           family = "Uryu",
+           role = c("aut", "cre"),
+           email = "suika1127@gmail.com",
+           comment = c(ORCID = "0000-0002-0493-6186")))
+Maintainer: Shinya Uryu <suika1127@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+URL: https://uribo.github.io/suryulib/, https://github.com/uribo/suryulib
+BugReports: https://github.com/uribo/suryulib/issues
+Imports:
+  ggplot2,
+  grDevices,
+  rlang
+Suggests: 
+    devtools,
+    testthat,
+    usethis
+Encoding: UTF-8
+LazyData: true
