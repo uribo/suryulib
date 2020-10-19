@@ -1,6 +1,6 @@
 #' Color scale for data science plot
 #'
-#' @param pallet main
+#' @param palette main
 #' @param discrete discrete variables
 #' @param reverse color order
 #' @param na.value na color

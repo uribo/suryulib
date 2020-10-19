@@ -1,34 +1,42 @@
-#' @title Theme of data science for dark mode
-#' @description aaaa
-#' @importFrom ggplot2 %+replace% theme theme_light element_rect element_text element_line
-
-#' @name theme_ds_dark
-NULL
-
-#'
-#' @description
-#' @export
+#' Theme of data science for dark mode
+#' @param base_size base font size
+#' @param ... Other arguments passed to [theme_light][ggplot2::theme_light]
 #' @rdname theme_ds_dark
-theme_ds_dark <- function() {
-  ggplot2::theme_light() %+replace%
-    ggplot2::theme(plot.background = ggplot2::element_rect(fill = "#272728"),
-          legend.background = ggplot2::element_rect(fill = "#272728",
-                                                    color = NA),
-          plot.title = ggplot2::element_text(color = "#FEFEFE"),
-          axis.title = ggplot2::element_text(color = "#FEFEFE"),
-          axis.text = ggplot2::element_text(color = "#FEFEFE"),
-          panel.background = ggplot2::element_rect(fill = "#303031",
-                                          colour = NA),
-          panel.grid = ggplot2::element_line(color = "#FEFEFE",
-                                             linetype = "dotted",
-                                             size = 0.2),
-          strip.background = ggplot2::element_rect(fill = "#717297"),
-          strip.text = ggplot2::element_text(color = "#FEFEFE"),
-          legend.title = ggplot2::element_text(color = "#FEFEFE"),
-          legend.text = ggplot2::element_text(color = "#FEFEFE"),
-          legend.key = ggplot2::element_rect(fill = "#272728",
-                                             color = NA),
-          legend.box.background = ggplot2::element_rect(fill = "#272728",
-                                                        color = NA),
-          complete = TRUE)
+#' @export
+theme_ds_dark <- function(base_size = 11, ...) {
+  ret <-
+    ggplot2::theme_light(base_size = base_size, ...)
+  ret$plot.background <-
+    ggplot2::element_rect(fill = "#272728")
+  ret$legend.background <-
+    ggplot2::element_rect(fill = "#272728",
+                          color = NA)
+  ret$plot.title <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$axis.title <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$axis.text <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$panel.background <-
+    ggplot2::element_rect(fill = "#303031",
+                          colour = NA)
+  ret$panel.grid <-
+    ggplot2::element_line(color = "#FEFEFE",
+                          linetype = "dotted",
+                          size = 0.2)
+  ret$strip.background <-
+    ggplot2::element_rect(fill = "#717297")
+  ret$strip.text <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$legend.title <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$legend.text <-
+    ggplot2::element_text(color = "#FEFEFE")
+  ret$legend.key <-
+    ggplot2::element_rect(fill = "#272728",
+                          color = NA)
+  ret$legend.box.background <-
+    ggplot2::element_rect(fill = "#272728",
+                          color = NA)
+  ret
 }
