@@ -15,9 +15,11 @@ License: MIT + file LICENSE
 URL: https://uribo.github.io/suryulib/, https://github.com/uribo/suryulib
 BugReports: https://github.com/uribo/suryulib/issues
 Imports:
+  dplyr,
   ggplot2,
   grDevices,
-  rlang
+  rlang,
+  sessioninfo
 Suggests: 
     devtools,
     testthat,
