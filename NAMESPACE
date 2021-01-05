@@ -2,6 +2,7 @@
 
 export("%>%")
 export(jpfont)
+export(line_notify)
 export(scale_color_ds)
 export(scale_fill_ds)
 export(summary_df)
