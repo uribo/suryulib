@@ -17,7 +17,6 @@ BugReports: https://github.com/uribo/suryulib/issues
 Imports:
     cli,
     clipr,
-    gibasa,
     glue,
     dplyr,
     ggplot2,
@@ -31,6 +30,7 @@ Imports:
     magrittr
 Suggests: 
     devtools,
+    gibasa,
     moments,
     testthat,
     usethis
