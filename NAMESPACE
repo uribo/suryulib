@@ -3,6 +3,7 @@
 export("%>%")
 export(convert_notionapp_link)
 export(jpfont)
+export(kanji_ruby)
 export(line_notify)
 export(scale_color_ds)
 export(scale_fill_ds)
