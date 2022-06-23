@@ -15,7 +15,7 @@ convert_notionapp_link <- function(url) {
     cat(cli::col_br_green("app linkをコピーしました\n"))
     res
   } else {
-    rlang::abort("URLwを確認してください。\n'https://www.notion.so/'で始まる必要があります")
+    rlang::abort("URLを確認してください。\n'https://www.notion.so/'で始まる必要があります")
   }
 }
 
