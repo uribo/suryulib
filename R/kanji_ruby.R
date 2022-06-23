@@ -21,3 +21,22 @@ kanji_ruby <- function(x, view = FALSE) {
     }
   }
 }
+
+#' html showing the reading of the word
+#'
+#' @inheritParams kanji_ruby
+#' @param yomi character
+#' @param style style for yomi text
+#' @rdname html_yomi
+#' @examples
+#' html_yomi("CRAN", "The Comprehensive R Archive Network", "parenthesis")
+#' @export
+html_yomi <- function(x, yomi, style = "space") {
+  rlang::arg_match(style,
+                   c("space", "parenthesis"))
+  if (style == "space") {
+    glue::glue("<span>{x}</span> <span>{yomi}</span>")
+  } else if (style == "parenthesis") {
+    glue::glue("<span>{x}</span> <span>({yomi})</span>")
+  }
+}
