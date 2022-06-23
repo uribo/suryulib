@@ -16,7 +16,7 @@ exec_stats <- function(data, .fun, na.rm = TRUE, .trim = NULL) {
                        "se"))
   if (fun %in% c("skewness", "kurtosis")) {
     if (!requireNamespace("moments", quietly = TRUE)) {
-      rlang::check_installed("moments2")
+      rlang::check_installed("moments")
     } else {
       loc <- if ("moments" %in% loadedNamespaces()) dirname(getNamespaceInfo("moments", "path"))
       do.call(
