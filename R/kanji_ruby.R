@@ -10,8 +10,8 @@ kanji_ruby <- function(x, view = FALSE) {
     rlang::check_installed("gibasa")
   } else {
     df <-
-      gibasa::gbs_tokenize(x) |>
-      gibasa::prettify(col_select = "Yomi1")
+      gibasa::prettify(gibasa::gbs_tokenize(x),
+                       col_select = "Yomi1")
     res <-
       htmltools::HTML(glue::glue("<ruby>{x}<rt>{df$Yomi1}</rt></ruby>"))
     if (view == TRUE) {
