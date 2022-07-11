@@ -2,6 +2,7 @@
 
 export("%>%")
 export(convert_notionapp_link)
+export(get_openbd)
 export(html_yomi)
 export(jpfont)
 export(kanji_ruby)

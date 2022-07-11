@@ -23,6 +23,7 @@ Imports:
     grDevices,
     htmltools,
     httr,
+    httr2,
     purrr,
     rlang,
     sessioninfo,
