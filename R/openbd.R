@@ -8,7 +8,7 @@
 #' @export
 get_openbd <- function(isbn) {
   if (length(isbn) == 0) {
-    rlang::abort("ISBNを入力してくだい")
+    rlang::abort("ISBNを入力してください")
   } else {
     x <-
       httr2::request("https://api.openbd.jp/v1/get") %>%
