@@ -24,9 +24,13 @@ Imports:
     htmltools,
     httr,
     httr2,
+    lubridate,
     purrr,
+    readr,
     rlang,
+    rtweet,
     sessioninfo,
+    stringr,
     tibble,
     magrittr
 Suggests: 
