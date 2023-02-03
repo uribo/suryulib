@@ -91,6 +91,7 @@ write_search_tweets_rds <- function(dir, query, since_id, ...) {
 #' @export
 #' @rdname write_twitter_query_status
 write_twitter_query_status <- function(dir, query) {
+  since_id <- since_id_old <- NULL
   df_latest_since_id <-
     query |>
     purrr::set_names() |>
@@ -100,6 +101,21 @@ write_twitter_query_status <- function(dir, query) {
         query = x)
     ) |>
     purrr::list_rbind(names_to = "query")
+
+  if (file.exists(glue::glue("{dir}/twitter_query_status.csv"))) {
+    df_oldest_since_id <-
+      readr::read_csv(glue::glue("{dir}/twitter_query_status.csv"),
+                      col_types = "cc_") %>%
+      dplyr::rename(since_id_old = since_id)
+
+    df_latest_since_id <-
+      df_latest_since_id |>
+      dplyr::left_join(df_oldest_since_id,
+                       by = dplyr::join_by(query)) |>
+      dplyr::transmute(query,
+                       since_id = dplyr::coalesce(since_id, since_id_old),
+                       file)
+  }
 
   readr::write_csv(df_latest_since_id,
                    glue::glue("{dir}/twitter_query_status.csv"))
