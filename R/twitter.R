@@ -78,3 +78,29 @@ write_search_tweets_rds <- function(dir, query, since_id, ...) {
                                     stringr::str_c(collapse = "to")))
   }
 }
+
+#' Write twitter query status to CSV
+#'
+#' This function retrieves the latest `since_id` for each query and writes the results to a CSV file.
+#'
+#' @inheritParams detect_tweet_latest_since_id
+#' @examples
+#' \dontrun{
+#' write_twitter_query_status("data-raw", c("#rstats", "#datascience"))
+#' }
+#' @export
+#' @rdname write_twitter_query_status
+write_twitter_query_status <- function(dir, query) {
+  df_latest_since_id <-
+    query |>
+    purrr::set_names() |>
+    purrr::map(
+      \(x) detect_tweet_latest_since_id(
+        dir = glue::glue("{dir}/twitter_query"),
+        query = x)
+    ) |>
+    purrr::list_rbind(names_to = "query")
+
+  readr::write_csv(df_latest_since_id,
+                   glue::glue("{dir}/twitter_query_status.csv"))
+}
