@@ -3,7 +3,7 @@
 #' @param x word
 #' @param view View html output in the viewer
 #' @examples
-#' kanji_ruby(intToUtf8(c(35576L, 34892L, 28961L, 24120L)))
+#' kanji_ruby("\u8af8\u884c\u7121\u5e38")
 #' @export
 kanji_ruby <- function(x, view = FALSE) {
   if (!requireNamespace("gibasa", quietly = TRUE)) {

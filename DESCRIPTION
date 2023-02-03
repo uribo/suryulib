@@ -35,8 +35,6 @@ Suggests:
     moments,
     testthat,
     usethis
-Remotes:
-  paithiov909/gibasa
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3

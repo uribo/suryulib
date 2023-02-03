@@ -15,5 +15,5 @@ kanji_ruby(x, view = FALSE)
 Ruby in html
 }
 \examples{
-kanji_ruby(intToUtf8(c(35576L, 34892L, 28961L, 24120L)))
+kanji_ruby("\u8af8\u884c\u7121\u5e38")
 }
