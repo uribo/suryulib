@@ -105,8 +105,9 @@ write_twitter_query_status <- function(dir, query) {
   if (file.exists(glue::glue("{dir}/twitter_query_status.csv"))) {
     df_oldest_since_id <-
       readr::read_csv(glue::glue("{dir}/twitter_query_status.csv"),
-                      col_types = "cc_") %>%
-      dplyr::rename(since_id_old = since_id)
+                      col_types = "ccc") %>%
+      dplyr::rename(since_id_old = since_id,
+                    file_old = file)
 
     df_latest_since_id <-
       df_latest_since_id |>
@@ -114,7 +115,7 @@ write_twitter_query_status <- function(dir, query) {
                        by = dplyr::join_by(query)) |>
       dplyr::transmute(query,
                        since_id = dplyr::coalesce(since_id, since_id_old),
-                       file)
+                       file = dplyr::coalesce(file, file_old))
   }
 
   readr::write_csv(df_latest_since_id,
