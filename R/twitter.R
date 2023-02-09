@@ -118,6 +118,7 @@ write_twitter_query_status <- function(dir, query) {
                        file = dplyr::coalesce(file, file_old))
   }
 
-  readr::write_csv(df_latest_since_id,
-                   glue::glue("{dir}/twitter_query_status.csv"))
+  df_latest_since_id %>%
+    dplyr::distinct(query, since_id, .keep_all = TRUE) %>%
+    readr::write_csv(glue::glue("{dir}/twitter_query_status.csv"))
 }
